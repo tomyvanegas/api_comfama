@@ -3,7 +3,7 @@
 //fomra actual de importar 
 import  express  from "express"
 
-import { router } from "../routers/routers.js"
+import { router } from "../routers/Routers.js"
 
 export class Servidor{
 
@@ -20,8 +20,8 @@ export class Servidor{
 
     correrServidor(){
         //levantando el servidor 
-        this.app.listen(3000,function(){
-            console.log("servidor corriendo")
+        this.app.listen(process.env.PORT,function(){
+            console.log("servidor corriendo"+ process.env.PORT)
 })
     }
 
