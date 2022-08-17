@@ -1,26 +1,32 @@
-import  express  from "express"
+import express from 'express'
 
-//crear variable para personalizar las rutas (endpoints)
-export let router = express.Router()
+//IMPORTAR EL CONTROLADOR DE HABITACIONES
+import {ControllerHabitacion} from '../controller/ControllerHabitacion.js'
+let controllerHabitacion=new ControllerHabitacion()
 
-//escribo mis rutas (cada ruta es un servicios)
+//variable para personalizar las rutas (ENDPOINTS) de mis servicios
+export let routers=express.Router()
 
-router.get('viajescomfama/v1/habitaciones',function (req, res) {
+
+//escribo mis rutas (cada ruta es un servicio)
+
+//ENDPOINTS PARA LOS SERVICIOS ASOCIADOS A LAS HABITACIONES
+
+routers.get('/viajescomfama/v1/habitaciones',controllerHabitacion.buscarHabitaciones)
+routers.get('/viajescomfama/v1/habitacion/:id',controllerHabitacion.buscarHabitacionPorId)
+routers.post('/viajescomfama/v1/habitacion',controllerHabitacion.agregarHabitacion)
+routers.put('/viajescomfama/v1/habitacion',controllerHabitacion.editarHabitacion)
+
+
+
+
+//ENDPOINTS PARA LOS SERVICIOS ASOCIADOS A LAS RESERVAS
+/*rutas.post('viajescomfama/v1/reserva',function (req, res) {
     res.send('Hello World')
 })
-
-router.get('viajescomfama/v1/habitacion/id',function (req, res) {
+rutas.put('viajescomfama/v1/reserva/:id',function (req, res) {
     res.send('Hello World')
 })
-
-router.post('viajescomfama/v1/reserva',function (req, res) {
+rutas.delete('viajescomfama/v1/cancelacion/:id',function (req, res) {
     res.send('Hello World')
-})
-
-router.put('viajescomfama/v1/reserva/id',function (req, res) {
-    res.send('Hello World')
-})
-
-router.delete('viajescomfama/v1/cancelacion/id',function (req, res) {
-    res.send('Hello World')
-})
+})*/

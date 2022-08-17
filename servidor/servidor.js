@@ -3,26 +3,35 @@
 //fomra actual de importar 
 import  express  from "express"
 
-import { router } from "../routers/Routers.js"
+import {routers} from "../routers/routers.js"
+
 
 export class Servidor{
 
     constructor(){
         this.app = express() // definiendo atributo o variable
-        this.atenderPeticiones //atiendo las peticiones del cliente
+        this.habilitarjson()
+        this.atenderPeticiones() //atiendo las peticiones del cliente
     }
 
     atenderPeticiones(){
-        // atendiendo peticiones 
-        this.app.use('/',router)
+        // atendiendo peticiones
+       
+        this.app.use('/',routers)
   
     }
 
-    correrServidor(){
+    habilitarjson(){
+
+        this.app.use(express.json()) 
+
+    }
+
+    encenderServidor(){
         //levantando el servidor 
         this.app.listen(process.env.PORT,function(){
             console.log("servidor corriendo"+ process.env.PORT)
-})
+        })
     }
 
 }

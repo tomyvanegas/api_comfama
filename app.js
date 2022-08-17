@@ -10,7 +10,7 @@ import 'dotenv/config'
 let servidor_Comfama = new Servidor()
 
 //ENCIENDO EL SERVIDOR
-servidor_Comfama.correrServidor()
+servidor_Comfama.encenderServidor()
 
 // remove this after you've confirmed it working
 console.log(process.env.PORT) 
