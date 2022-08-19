@@ -5,6 +5,11 @@ import  express  from "express"
 
 import {routers} from "../routers/routers.js"
 
+//llamar al metodo conectar con bd
+
+
+import { connect } from "../database/conexion.js"
+
 
 export class Servidor{
 
@@ -32,6 +37,12 @@ export class Servidor{
         this.app.listen(process.env.PORT,function(){
             console.log("servidor corriendo"+ process.env.PORT)
         })
+    }
+
+    conectarConBd(){
+
+        connect()
+
     }
 
 }

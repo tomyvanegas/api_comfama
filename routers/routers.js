@@ -15,7 +15,7 @@ export let routers=express.Router()
 routers.get('/viajescomfama/v1/habitaciones',controllerHabitacion.buscarHabitaciones)
 routers.get('/viajescomfama/v1/habitacion/:id',controllerHabitacion.buscarHabitacionPorId)
 routers.post('/viajescomfama/v1/habitacion',controllerHabitacion.agregarHabitacion)
-routers.put('/viajescomfama/v1/habitacion',controllerHabitacion.editarHabitacion)
+routers.put('/viajescomfama/v1/habitacion/:id',controllerHabitacion.editarHabitacion)
 
 
 
